@@ -11,6 +11,19 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    i = 1
+    result = n
+    if k == 0:
+        return n
+    while i < k:
+        result = result * (n - i) 
+        i += 1
+        #result = result * (n - i) 
+    return result
+
+print(falling(6, 3))
+# print("hello world")
+
 
 
 def divisible_by_k(n, k):
