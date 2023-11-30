@@ -47,20 +47,20 @@ def divisible_by_k(n, k):
     0
     """
     "*** YOUR CODE HERE ***"
-    count = 0
-    if n // k == 0:
-    #    print(count)
-        return count
-    elif n // k != 0:
+    if n % k == 0:      # 如果N可以被K整除
         tmp = k
         while tmp <= n:
-            if n % tmp == 0:
+            if tmp % k == 0:    # 如果tmp能够被k整除
                 print(tmp)
-                tmp += 1
+            tmp += 1
         return (n // k)
+    else:
+        # print("There are no integers up to n divisible by k")
+        return 0
 
-#b = divisible_by_k(3, 1)
-#print(b)
+
+test = divisible_by_k(10, 2)
+print(test)
 #print("hello world")
 
 
@@ -88,8 +88,8 @@ def sum_digits(y):
         sum = sum + int(text[i])
     return sum
 
-test = sum_digits(10)
-print(test)
+# test = sum_digits(10)
+# print(test)
     
 
 
