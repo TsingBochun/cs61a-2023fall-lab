@@ -81,12 +81,18 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
-    text = str(y)
+    text = str(y)   # 数字转换成字符串
     #print(y)
-    return text
+    sum = 0
+    for i in range(len(text)):
+        sum = sum + int(text[i])
+    return sum
 
-a = sum_digits(30000)
-print(a[0])
+test = sum_digits(10)
+print(test)
+    
+
+
 
 
 
