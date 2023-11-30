@@ -21,7 +21,7 @@ def falling(n, k):
         #result = result * (n - i) 
     return result
 
-print(falling(6, 3))
+#print(falling(6, 3))  TEST SUCCED
 # print("hello world")
 
 
@@ -47,6 +47,24 @@ def divisible_by_k(n, k):
     0
     """
     "*** YOUR CODE HERE ***"
+    count = 0
+    if n // k == 0:
+    #    print(count)
+        return count
+    elif n // k != 0:
+        tmp = k
+        while tmp <= n:
+            if n % tmp == 0:
+                print(tmp)
+                tmp += 1
+        return (n // k)
+
+#b = divisible_by_k(3, 1)
+#print(b)
+#print("hello world")
+
+
+
 
 
 def sum_digits(y):
@@ -63,6 +81,15 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    text = str(y)
+    #print(y)
+    return text
+
+a = sum_digits(30000)
+print(a[0])
+
+
+
 
 
 def double_eights(n):
