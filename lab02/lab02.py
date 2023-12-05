@@ -31,6 +31,17 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+    def myfunction(x):
+        #print("composer(): ", composer(f, g))
+        #print("composer(): ", composer(g, f))
+        if composer(f, g)(x) == composer(g, f)(x):
+            #print("composer(): ", composer(f, g))
+            #print("composer(): ", composer(g, f))
+            return True
+        else:
+            return False
+
+    return myfunction         # finished  composite_identity(square, add_one)()
 
 
 def sum_digits(y):
