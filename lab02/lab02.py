@@ -41,7 +41,7 @@ def composite_identity(f, g):
         else:
             return False
 
-    return myfunction         # finished  composite_identity(square, add_one)()
+    return myfunction         # composite_identity(square, add_one)() finished
 
 
 def sum_digits(y):
@@ -64,10 +64,10 @@ def count_cond(condition):
     """Returns a function with one parameter N that counts all the numbers from
     1 to N that satisfy the two-argument predicate function Condition, where
     the first argument for Condition is N and the second argument is the
-    number from 1 to N.
+    number from 1 to N.     # 作用是计算1到N之间所有满足条件的数字的个数, 应该是这个意思
 
-    >>> count_fives = count_cond(lambda n, i: sum_digits(n * i) == 5)
-    >>> count_fives(10)   # 50 (10 * 5)
+    >>> count_fives = count_cond(lambda n, i: sum_digits(n * i) == 5)   
+    >>> count_fives(10)   # 50 (10 * 5)         # 计算1到10之间的数组满足条件的个数, 条件是: 该数字乘以5之后的数字所有位上的数码的和可以被5整除
     1
     >>> count_fives(50)   # 50 (50 * 1), 500 (50 * 10), 1400 (50 * 28), 2300 (50 * 46)
     4
@@ -86,6 +86,16 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def myfunction(n):
+        count = 0         # 用来作为计数器
+        i = 1
+        while i <= n:
+            if condition(n, i) == True:
+                # i += 1
+                count += 1
+            i += 1
+        return count
+    return myfunction
 
 
 def multiple(a, b):
