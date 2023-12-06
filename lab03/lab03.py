@@ -92,7 +92,7 @@ def get_k_run_starter(n, k):
             i = l                    
      #return list           # only for debug        # Q2: K Runner 生成list完成
     index = len(list) - 1 - k             # 将k进行转换
-    return int(list[index][0])
+    return int(list[index][0])            # Q2: K Runner get_k_run_starter() finish
 
 
 
@@ -161,18 +161,23 @@ def make_repeater(func, n):
     5
     """
     "*** YOUR CODE HERE ***"
-    def myfunction(n):                      # Q4: Make Repeater 暂时跳过
-        i = 0
-        #f = composer(func, func)
-        while i < n:
-            if i == 0:
-                f = composer(func, func)
-                i += 1
-            else:    
-                f = composer(func, f)
-                i +=1 
-        return f(n)                 
-    return myfunction
+    #def myfunction(n):                      # Q4: Make Repeater 暂时跳过
+    if n <= 0:
+        return lambda x: x              # 如果调用零次只显示参数
+    list = []                          # 初始化一个list用来存放函数
+    for i in range(n):
+        if i == 0:
+            #tempf = func
+            list.append(func)
+            i += 1
+        else:
+            list.append(composer(func, list[i - 1]))
+            i += 1
+    return list[i-1]
+    # myfunction = tempf
+
+    #    return result                        
+    #return myfunction
     
     
 
