@@ -36,7 +36,7 @@ def ordered_digits(x):
             i += 1
         else:
             return False
-    return True
+    return True                       # Q1: Ordered: Digitsordered_digits() finished 
 
 
 def get_k_run_starter(n, k):
@@ -58,15 +58,27 @@ def get_k_run_starter(n, k):
     >>> get_k_run_starter(1234234534564567, 2)
     2
     """
+    #i = 0                                            # 不使用给定的写法
+    #final = None
+    #while ____________________________:
+    #    while ____________________________:
+    #        ____________________________
+    #    final = ____________________________
+    #    i = ____________________________
+    #    n = ____________________________
+    #return final
+    list = []                                       # 初始化一个list空表单
+    text = str(n)
     i = 0
-    final = None
-    while ____________________________:
-        while ____________________________:
-            ____________________________
-        final = ____________________________
-        i = ____________________________
-        n = ____________________________
-    return final
+    #k = 0
+    while i <= len(text) - 1:
+        if int(text[i]) < int(text[i+1]):
+            i += 1
+        else: # int(text[i]) >= int(text[i+1])
+            list.append = text[0: i]               # 将i之前的元素作为数组赋给list
+        #    k += 1
+    return list           # only for debug
+
 
 
 def nearest_two(x):
