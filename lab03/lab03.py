@@ -196,10 +196,14 @@ def apply_twice(func):
     16
     """
     "*** YOUR CODE HERE ***"
-    def myfunction(x):
-        result = func(func(x))
-        return result
-    return myfunction
+    #def myfunction(x):
+    #    result = func(func(x))
+    #    return result
+    #return myfunction            # Q5: Apply Twice apply_twice 完成，不使用make_repeater版本
+    #def myfunction(x):
+    #    result = make_repeater(func, 2)
+    #    return result
+    return make_repeater(func, 2)     # Q5: Apply Twice apply_twice 完成，使用make_repeater版本
 
 
 def div_by_primes_under(n):
