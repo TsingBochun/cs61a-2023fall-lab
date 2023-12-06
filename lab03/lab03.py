@@ -92,7 +92,7 @@ def nearest_two(x):
     16.0
     >>> nearest_two(2015)
     2048.0
-    >>> nearest_two(.1)           # 测试这里有bug,显示为0.5,其余均为正数
+    >>> nearest_two(.1)           # 测试这里有bug,显示为0.5,其余均为正数  Q3: Nearest Power of Two 整型测试通过
     0.125
     >>> nearest_two(0.75) # Tie between 1/2 and 1
     1.0
@@ -103,8 +103,21 @@ def nearest_two(x):
     power_of_two = 1.0
     "*** YOUR CODE HERE ***"
     def power2(n):               # 先自己写一个2的幂函数
-        return float(2 ** n)       
+        return float(2 ** n)
+    #if x < 1:
+    #    while(power2(i) <= x):   
     i = 0
+    if x < 1:          # 当X是小数的时候需要单独考虑
+        while(power2(i) >= x):
+            if power2(i) == x:
+                power_of_two = power2(i)
+            i -= 1
+        if x - power2(i) <=  power2(i+1) - x:
+            power_of_two = power2(i)
+        else:
+            power_of_two = power2(i+1)
+        
+
     while(power2(i) <= x):    # 遍历所有2的幂小于等于x, 找到小于等于x的2的幂的最大值的指数i
         if power2(i) == x:     # 如果存在2的幂等于x
             power_of_two = power2(i)
