@@ -217,13 +217,32 @@ def div_by_primes_under(n):
     >>> div_by_primes_under(5)(1)
     False
     """
-    checker = lambda x: False
-    i = ____________________________
-    while ____________________________:
-        if not checker(i):
-            checker = ____________________________
-        i = ____________________________
-    return ____________________________
+#    checker = lambda x: False
+#    i = ____________________________
+#    while ____________________________:
+#        if not checker(i):
+#            checker = ____________________________
+#        i = ____________________________
+#    return ____________________________
+    # 首先找到n以下所有的质数，包括n，按顺序装在一个list中
+    list = []
+    def is_prime(x):      # 自己写一个判断质数的函数，如果是质数，返回真，反之亦然
+        if x == 0 or x == 1 or x < 0:
+            return False
+        i = 2             # 直接让i从2开始
+        while i < x:
+            if x % i == 0:
+                return False
+            i += 1
+        return True
+    # 先找到n以下的所有质数，包括n
+    for i in range(0, n+1):
+        if is_prime(i) == True:
+            list.append(i)
+    return list
+
+        
+
 
 def div_by_primes_under_no_lambda(n):
     """
