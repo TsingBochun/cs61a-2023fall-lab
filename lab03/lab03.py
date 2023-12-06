@@ -239,7 +239,18 @@ def div_by_primes_under(n):
     for i in range(0, n+1):
         if is_prime(i) == True:
             list.append(i)
-    return list
+    # return list                # Q6: It's Always a Good Prime 完成功能找到N以下所有质数并存储在list
+    # 最后实现 n 能否被 n以下所有质数 中任意一个整除
+    def myfunction(x):
+        k = 0
+        for k in range(len(list)):
+            if x % list[k] == 0:
+                return True
+            #else:
+            #    k += 1
+            k += 1
+        return False
+    return myfunction 
 
         
 
