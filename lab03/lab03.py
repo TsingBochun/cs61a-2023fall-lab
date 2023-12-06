@@ -173,7 +173,7 @@ def make_repeater(func, n):
         else:
             list.append(composer(func, list[i - 1]))
             i += 1
-    return list[i-1]
+    return list[i-1]                 # Q4: Make Repeater：make_repeater（） finish
     # myfunction = tempf
 
     #    return result                        
@@ -196,6 +196,10 @@ def apply_twice(func):
     16
     """
     "*** YOUR CODE HERE ***"
+    def myfunction(x):
+        result = func(func(x))
+        return result
+    return myfunction
 
 
 def div_by_primes_under(n):
