@@ -90,8 +90,9 @@ def get_k_run_starter(n, k):
             list.append(text[l: i+1])
             l = i + 1
             i = l                    
-
-    return list           # only for debug        # Q2: K Runner 生成list完成
+     #return list           # only for debug        # Q2: K Runner 生成list完成
+    index = len(list) - 1 - k             # 将k进行转换
+    return int(list[index][0])
 
 
 
