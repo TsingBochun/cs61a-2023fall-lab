@@ -10,7 +10,7 @@ increment = lambda x: x + 1
 
 
 def ordered_digits(x):
-    """Return True if the (base 10) digits of X>0 are in non-decreasing
+    """Return True if the (base 10) digits of X>0 are in non-decreasing   # 从左往右读取digit,判断是否为非降序,如果是就返回真,不是就返回假
     order, and False otherwise.
 
     >>> ordered_digits(5)
@@ -29,6 +29,14 @@ def ordered_digits(x):
 
     """
     "*** YOUR CODE HERE ***"
+    text = str(x)
+    i = 0
+    while i < len(text) - 1:                  # i 取到倒数第二个即可
+        if int(text[i]) <= int(text[i+1]):
+            i += 1
+        else:
+            return False
+    return True
 
 
 def get_k_run_starter(n, k):
