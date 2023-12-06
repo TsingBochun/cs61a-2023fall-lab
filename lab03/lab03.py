@@ -77,7 +77,7 @@ def get_k_run_starter(n, k):
         else: # int(text[i]) >= int(text[i+1])
             list.append = text[0: i]               # 将i之前的元素作为数组赋给list
         #    k += 1
-    return list           # only for debug
+    return list           # only for debug        # Q2: K Runner 暂时跳过
 
 
 
@@ -92,7 +92,7 @@ def nearest_two(x):
     16.0
     >>> nearest_two(2015)
     2048.0
-    >>> nearest_two(.1)
+    >>> nearest_two(.1)           # 测试这里有bug,显示为0.5,其余均为正数
     0.125
     >>> nearest_two(0.75) # Tie between 1/2 and 1
     1.0
@@ -102,6 +102,18 @@ def nearest_two(x):
     """
     power_of_two = 1.0
     "*** YOUR CODE HERE ***"
+    def power2(n):               # 先自己写一个2的幂函数
+        return float(2 ** n)       
+    i = 0
+    while(power2(i) <= x):    # 遍历所有2的幂小于等于x, 找到小于等于x的2的幂的最大值的指数i
+        if power2(i) == x:     # 如果存在2的幂等于x
+            power_of_two = power2(i)
+        i += 1    # 当2的i次幂大于x的时候退出循环，这个时候的i是2的i次幂比x刚刚大的那个i
+    if power2(i) - x <= x - power2(i-1):
+        power_of_two = power2(i)
+    else:
+        power_of_two = power2(i-1)
+    
     return power_of_two
 
 
