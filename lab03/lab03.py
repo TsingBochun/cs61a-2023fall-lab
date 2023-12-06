@@ -107,7 +107,7 @@ def nearest_two(x):
     #if x < 1:
     #    while(power2(i) <= x):   
     i = 0
-    if x < 1:          # 当X是小数的时候需要单独考虑       # Q3: Nearest Power of Two 
+    if x < 1:          # 当X是小数的时候需要单独考虑       # Q3: Nearest Power of Two nearest_two all finished
         while(power2(i) >= x):
             if power2(i) == x:
                 power_of_two = power2(i)
@@ -146,6 +146,20 @@ def make_repeater(func, n):
     5
     """
     "*** YOUR CODE HERE ***"
+    def myfunction(n):
+        i = 0
+        #f = composer(func, func)
+        while i < n:
+            if i == 0:
+                f = composer(func, func)
+                i += 1
+            else:    
+                f = composer(func, f)
+                i +=1 
+        return f(n)                 
+    return myfunction
+    
+    
 
 def composer(func1, func2):
     """Returns a function f, such that f(x) = func1(func2(x))."""
