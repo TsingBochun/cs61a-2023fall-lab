@@ -107,7 +107,7 @@ def nearest_two(x):
     #if x < 1:
     #    while(power2(i) <= x):   
     i = 0
-    if x < 1:          # 当X是小数的时候需要单独考虑
+    if x < 1:          # 当X是小数的时候需要单独考虑       # Q3: Nearest Power of Two 
         while(power2(i) >= x):
             if power2(i) == x:
                 power_of_two = power2(i)
