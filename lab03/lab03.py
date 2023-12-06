@@ -69,15 +69,29 @@ def get_k_run_starter(n, k):
     #return final
     list = []                                       # 初始化一个list空表单
     text = str(n)
-    i = 0
-    #k = 0
-    while i <= len(text) - 1:
-        if int(text[i]) < int(text[i+1]):
-            i += 1
-        else: # int(text[i]) >= int(text[i+1])
-            list.append = text[0: i]               # 将i之前的元素作为数组赋给list
+    i = 0         # 用来显示当前元素的位置
+    l = 0         # 从来表示起始元素的位置
+    #while i < len(text) - 1:
+    #    if int(text[i]) < int(text[i+1]):
+    #        i += 1
+    #    else: # int(text[i]) >= int(text[i+1])
+    ##        list.append(text[l: i+1])               # 将i之前的元素作为数组赋给list,包括i，所以结尾是i+1
+    #        l = i + 1                            # 测试将结束位置的下一个位置标记为k
+    #        i = l
         #    k += 1
-    return list           # only for debug        # Q2: K Runner 暂时跳过
+        #    break        # onlu for debug
+    ###上述全部注释掉，改用for循环来实现
+    for i in range(len(text) - 1):                # 因为最后一个元素没有包括进去，所以实质上i是到了倒数第二个
+        if int(text[i]) < int(text[i+1]):  
+            i += 1
+            if i == len(text) - 1:            # 相当于此时i指向最后一个元素
+                list.append(text[l: i+1])     # 将此时的最后一组由小到大组放进去 
+        else: # int(text[i]) >= int(text[i+1])
+            list.append(text[l: i+1])
+            l = i + 1
+            i = l                    
+
+    return list           # only for debug        # Q2: K Runner 生成list完成
 
 
 
@@ -146,7 +160,7 @@ def make_repeater(func, n):
     5
     """
     "*** YOUR CODE HERE ***"
-    def myfunction(n):
+    def myfunction(n):                      # Q4: Make Repeater 暂时跳过
         i = 0
         #f = composer(func, func)
         while i < n:
