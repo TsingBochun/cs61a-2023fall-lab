@@ -250,7 +250,7 @@ def div_by_primes_under(n):
             #    k += 1
             k += 1
         return False
-    return myfunction 
+    return myfunction       # Q6: It's Always a Good Prime 完成所有功能
 
         
 
