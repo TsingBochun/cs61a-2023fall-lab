@@ -63,7 +63,7 @@ def my_reduce(combiner, seq):
     
     
 
-
+# Q5: Double Eights
 def my_map_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
 
@@ -107,6 +107,18 @@ def double_eights(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    # 我觉得这个问题用递归来解决实在是有点蠢，实在是不适合递归，所以就直接用正常方法做
+    text = str(n)
+    if len(text) == 1:
+        return False
+    for i in range(len(text) - 1):
+        if text[i] == '8' and text[i + 1] == '8':
+            #print(i, i+1)    # 
+            #i += 1
+            return True
+    return False
+    
+        
 
 
 def merge(lst1, lst2):
