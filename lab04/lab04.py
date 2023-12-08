@@ -84,7 +84,7 @@ def my_filter_syntax_check():
     """
     # You don't need to edit this function. It's just here to check your work.
 
-
+# Q5: Double Eights
 def double_eights(n):
     """ Returns whether or not n has two digits in row that
     are the number 8. Assume n has at least two digits in it.
@@ -116,11 +116,11 @@ def double_eights(n):
             #print(i, i+1)    # 
             #i += 1
             return True
-    return False
+    return False             #  Q5: Double Eights finished
     
         
 
-
+# Q6: Merge
 def merge(lst1, lst2):
     """Merges two sorted lists.
 
@@ -146,6 +146,15 @@ def merge(lst1, lst2):
     True
     """
     "*** YOUR CODE HERE ***"
+# Recursive Solution
+    if not lst1 or not lst2:
+        return lst1 + lst2
+    elif lst1[0] < lst2[0]:
+        return [lst1[0]] + merge(lst1[1:], lst2)     # 这里是我没想到的，list合并可以直接用加法，
+    else:
+        return [lst2[0]] + merge(lst1, lst2[1:])     # 感觉自己对于递归的理解还是不深刻，最关键的不懂得将问题分拆成递归问题
+                                                     # 几乎可以用迭代解决的问题，也都可以用递归解决
+        
 
 
 def summation(n, term):
