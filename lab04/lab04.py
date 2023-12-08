@@ -15,6 +15,7 @@ def my_map(fn, seq):
     """
     return [fn(x) for x in seq]              # Q2: Map finished
 
+# Q3: Filter
 def my_filter(pred, seq):
     """Keeps elements in seq only if they satisfy pred.
     >>> my_filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  # new list has only even-valued elements
@@ -31,7 +32,7 @@ def my_filter(pred, seq):
     >>> my_filter(lambda x: max(5, x) == 5, [1, 2, 3, 4, 5, 6, 7])
     [1, 2, 3, 4, 5]
     """
-    return ______
+    return [x for x in seq if pred(x) == True]
 
 def my_reduce(combiner, seq):
     """Combines elements in seq using combiner.
