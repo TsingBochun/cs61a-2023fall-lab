@@ -1,6 +1,6 @@
 LAB_SOURCE_FILE = __file__
 
-
+# Q2: Map
 def my_map(fn, seq):
     """Applies fn onto each element in seq and returns a list.
     >>> my_map(lambda x: x*x, [1, 2, 3])
@@ -13,7 +13,7 @@ def my_map(fn, seq):
     2023
     [None, None, None]
     """
-    return ______
+    return [fn(x) for x in seq]              # Q2: Map finished
 
 def my_filter(pred, seq):
     """Keeps elements in seq only if they satisfy pred.
