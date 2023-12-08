@@ -32,8 +32,9 @@ def my_filter(pred, seq):
     >>> my_filter(lambda x: max(5, x) == 5, [1, 2, 3, 4, 5, 6, 7])
     [1, 2, 3, 4, 5]
     """
-    return [x for x in seq if pred(x) == True]
+    return [x for x in seq if pred(x) == True]          # Q3: Filter finished
 
+# Q4: Reduce
 def my_reduce(combiner, seq):
     """Combines elements in seq using combiner.
     seq will have at least one element.
@@ -47,6 +48,21 @@ def my_reduce(combiner, seq):
     11
     """
     "*** YOUR CODE HERE ***"
+    # 用递归思路解决，combiner一个seq相当于先把最后一项挑出来，然后先把前面的without_last = my_reduce(seq[0：len(seq)-1]),
+    # 再结合最后一项combine(without_last， seq[-1]) 
+    # 需要定义一个helper函数
+    def helper(seq):
+        #result = 0
+        if len(seq) == 1:
+            return seq[0]
+        elif len(seq) == 2:
+            return combiner(seq[0], seq[1])
+        else:
+            return combiner(helper(seq[0: len(seq) - 1]), seq[-1]) 
+    return helper(seq)              # Q4: Reduce finished 
+    
+    
+
 
 def my_map_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
