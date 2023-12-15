@@ -18,31 +18,39 @@ def berry_finder(t):
     """
     "*** YOUR CODE HERE ***"
     # 先看这个TREE是不是叶子，如果是，本身的LABEL如果是berry那么就返回TRUE，反之亦然
-    result = 0
-    if is_leaf(t) == True:
-        if label(t) == 'berry':
+    #result = 0
+    #if is_leaf(t) == True:
+    #    if label(t) == 'berry':
         #    print(t)      #only for debug
         #    return True
-            result += 1
-        else:
+    #        result += 1
+    #    else:
         #    print(t)      #only for debug
         #    return False
-            result += 0
+    #        result += 0
     # 如果不是叶子，如果LABEL是berry的话，就返回TRUE，反之继续寻找：
-    else:
-        if label(t) == 'berry':
+    #else:
+    #    if label(t) == 'berry':
         #    print(t)      #only for debug
         #    return True
-            result += 1
-        else: 
-            for branch in branches(t):
+    #        result += 1
+    #    else: 
+    #        for branch in branches(t):
         #        print(t)      #only for debug
                 #return berry_finder(branch)
-                result += berry_finder(branch)
-    if result > 0:
+    #            result += berry_finder(branch)
+    #if result > 0:
+    #    return True
+    #else:
+    #    return False        # Q2: Finding Berries! finished
+    if label(t) == 'berry':
         return True
     else:
-        return False
+        for branch in branches(t):
+            if berry_finder(branch) == True:
+                return True
+    return False
+
 
 
 def replace_loki_at_leaf(t, lokis_replacement):
