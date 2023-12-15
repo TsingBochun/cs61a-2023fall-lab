@@ -49,10 +49,10 @@ def berry_finder(t):
         for branch in branches(t):
             if berry_finder(branch) == True:
                 return True
-    return False
+    return False        # Q2 官方实现
 
 
-
+# Q3: Replace Loki at Leaf
 def replace_loki_at_leaf(t, lokis_replacement):
     """Returns a new tree where every leaf value equal to "loki" has
     been replaced with lokis_replacement.
@@ -83,7 +83,15 @@ def replace_loki_at_leaf(t, lokis_replacement):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    if is_leaf(t) == True:
+        if label(t) == 'loki':
+            return tree(lokis_replacement)
+    else:
+        #for branch in branches(t):
+        #    if is_leaf(branch) == True:
+        #    replace_loki_at_leaf(branch, lokis_replacement)
+        bs = [replace_loki_at_leaf(b, lokis_replacement) for b in branches(t)]
+        return tree(label(t), bs)
 
 
 # Tree ADT
