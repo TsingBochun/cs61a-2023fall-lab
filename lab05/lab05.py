@@ -6,7 +6,7 @@ def berry_finder(t):
     >>> berry_finder(scrat)
     True
     >>> sproul = tree('roots', [tree('branch1', [tree('leaf'), tree('berry')]), tree('branch2')])
-    >>> berry_finder(sproul)
+    >>> berry_finder(sproul)     # 第一次测试有误
     True
     >>> numbers = tree(1, [tree(2), tree(3, [tree(4), tree(5)]), tree(6, [tree(7)])])
     >>> berry_finder(numbers)
@@ -16,6 +16,19 @@ def berry_finder(t):
     True
     """
     "*** YOUR CODE HERE ***"
+    # 先看这个TREE是不是叶子，如果是，本身的LABEL如果是berry那么就返回TRUE，反之亦然
+    if is_leaf(t) == True:
+        if label(t) == 'berry':
+            return True
+        else:
+            return False
+    # 如果不是叶子，如果LABEL是berry的话，就返回TRUE，反之继续寻找：
+    else:
+        if label(t) == 'berry':
+            return True
+        else: 
+            for branch in branches(t):
+                return berry_finder(branch)
 
 
 def replace_loki_at_leaf(t, lokis_replacement):
