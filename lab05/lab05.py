@@ -90,8 +90,9 @@ def replace_loki_at_leaf(t, lokis_replacement):
         #for branch in branches(t):
         #    if is_leaf(branch) == True:
         #    replace_loki_at_leaf(branch, lokis_replacement)
+        #    return tree()
         bs = [replace_loki_at_leaf(b, lokis_replacement) for b in branches(t)]
-        return tree(label(t), bs)
+        return tree(label(t), bs)        # Q3: Replace Loki at Leaf FINISHED
 
 
 # Tree ADT
@@ -176,7 +177,7 @@ def copy_tree(t):
     """
     return tree(label(t), [copy_tree(b) for b in branches(t)])
 
-
+# Q4: Distance
 from math import sqrt
 def distance(city_a, city_b):
     """
@@ -190,6 +191,11 @@ def distance(city_a, city_b):
     5.0
     """
     "*** YOUR CODE HERE ***"
+    x = get_lat(city_a) - get_lat(city_b)
+    y = get_lon(city_a) - get_lon(city_b)
+    distance = sqrt(x * x + y * y)
+    return distance
+
 
 def closer_city(lat, lon, city_a, city_b):
     """
@@ -207,6 +213,7 @@ def closer_city(lat, lon, city_a, city_b):
     'Bucharest'
     """
     "*** YOUR CODE HERE ***"
+
 
 def check_city_abstraction():
     """
