@@ -86,6 +86,8 @@ def replace_loki_at_leaf(t, lokis_replacement):
     if is_leaf(t) == True:
         if label(t) == 'loki':
             return tree(lokis_replacement)
+        #else:
+        #    return tree(t)
     else:
         #for branch in branches(t):
         #    if is_leaf(branch) == True:
@@ -93,6 +95,27 @@ def replace_loki_at_leaf(t, lokis_replacement):
         #    return tree()
         bs = [replace_loki_at_leaf(b, lokis_replacement) for b in branches(t)]
         return tree(label(t), bs)        # Q3: Replace Loki at Leaf FINISHED
+
+#### DISC05部分
+#Q5: Height
+def height(t):
+    """Return the height of a tree.
+    >>> t = tree(3, [tree(5, [tree(1)]), tree(2)])
+    >>> height(t)
+    2
+    >>> t = tree(3, [tree(1), tree(2, [tree(5, [tree(6)]), tree(1)])])
+    >>> height(t)
+    3
+    """
+    "*** YOUR CODE HERE ***"
+    if is_leaf(t) == True:
+        return 0
+    #elif is_leaf(t) == False:
+    #    for b in branches(t):
+    #        if is_leaf(b) == True:
+    #            return 1
+    else:
+        return 1 + max([height(b) for b in branches(t)])
 
 
 # Tree ADT
@@ -196,7 +219,7 @@ def distance(city_a, city_b):
     distance = sqrt(x * x + y * y)
     return distance
 
-
+# Q5: Closer City
 def closer_city(lat, lon, city_a, city_b):
     """
     Returns the name of either city_a or city_b, whichever is closest to
@@ -213,6 +236,16 @@ def closer_city(lat, lon, city_a, city_b):
     'Bucharest'
     """
     "*** YOUR CODE HERE ***"
+    #list = []
+    # 创造一个CITY当做比较器
+    comepare_city = make_city('compare', lat, lon)
+    # 分别计算出所有CITY和这个CITY的距离，放在一个list中，最后取最小的
+    #min_distance = min([distance(comepare_city, city_a), distance(comepare_city, city_b)])
+    if distance(comepare_city, city_a) < distance(comepare_city, city_b):
+        return get_name(city_a)
+    else:
+        return get_name(city_b)         # 
+
 
 
 def check_city_abstraction():
