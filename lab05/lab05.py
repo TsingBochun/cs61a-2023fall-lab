@@ -115,8 +115,39 @@ def height(t):
     #        if is_leaf(b) == True:
     #            return 1
     else:
-        return 1 + max([height(b) for b in branches(t)])
+        return 1 + max([height(b) for b in branches(t)])   #Q5(DISC05): Height finished
 
+
+#Q6: Find Path
+def find_path(t, x):
+    """
+    >>> t = tree(2, [tree(7, [tree(3), tree(6, [tree(5), tree(11)])] ), tree(15)])
+    >>> find_path(t, 5)
+    [2, 7, 6, 5]
+    >>> find_path(t, 10)  # returns None
+    """
+    #if _____________________________:
+    #    return _____________________________
+    #_____________________________:
+    #    path = ______________________
+    #    if _____________________________:
+    #        return _____________________________
+    #if is_leaf(t) == True and label(t) == x:
+    if label(t) == x:
+        return [x]
+    else:
+        #path = find_path(b, x) for b in branches(t)
+        #if path:     # 这个代码代表PATH确实能够存在
+
+        for b in branches(t):
+            path = find_path(b, x) 
+        #return list(label(t)) + path
+        #if x in path:
+            #return [label(t) + path]
+            if path:         # 这个代码代表PATH确实能够存在
+                return [label(t)] + path
+        #return [path] + [label(t)]
+            
 
 # Tree ADT
 
