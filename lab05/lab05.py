@@ -146,7 +146,52 @@ def find_path(t, x):
             #return [label(t) + path]
             if path:         # 这个代码代表PATH确实能够存在
                 return [label(t)] + path
-        #return [path] + [label(t)]
+        #return [path] + [label(t)]       # Q6: Find Path (DISC05) finished
+
+
+# Q7: Sprout Leaves
+def sprout_leaves(t, leaves):
+    """Sprout new leaves containing the data in leaves at each leaf in
+    the original tree t and return the resulting tree.
+    >>> t1 = tree(1, [tree(2), tree(3)])
+    >>> print_tree(t1)
+    1
+      2
+      3
+    >>> new1 = sprout_leaves(t1, [4, 5])
+    >>> print_tree(new1)
+    1
+      2
+        4
+        5
+      3
+        4
+        5
+
+    >>> t2 = tree(1, [tree(2, [tree(3)])])
+    >>> print_tree(t2)
+    1
+      2
+        3
+    >>> new2 = sprout_leaves(t2, [6, 1, 2])
+    >>> print_tree(new2)
+    1
+      2
+        3
+          6
+          1
+          2
+    """
+    "*** YOUR CODE HERE ***"
+    if is_leaf(t) == True:
+        bs = [tree(x) for x in leaves]
+        return tree(label(t), bs)
+    else:
+       bs = [sprout_leaves(b, leaves) for b in branches(t)]
+       return tree(label(t), bs)
+    #    return tree(label(t), [sprout_leaves(s, leaves) for s in branches(t)])
+    #    return tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])
+
             
 
 # Tree ADT
