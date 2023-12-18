@@ -74,16 +74,16 @@ def count_occurrences(t, n, x):
     count = 0
     i = 0
     while i < n:
-    #    if next(t) == x:     # ⭐️写到这里
+    #    if next(t) == x:     #
         tmp = next(t)
         if x == tmp:
     #    for x in t:
     #        if 
             count += 1
         i += 1
-    return count
+    return count         # Q4: Count Occurrences FINISHED
 
-
+# Q5: Repeated 
 def repeated(t, k):
     """Return the first value in iterator t that appears k times in a row,
     calling next on t as few times as possible.
@@ -105,6 +105,30 @@ def repeated(t, k):
     """
     assert k > 1
     "*** YOUR CODE HERE ***"
+    #list = [next(t)]      # 初始化一个表用来存数据
+    count = 0
+    list = []
+    list.append(next(t))
+    tmp = 0
+    while True:
+    #while i < k - 1:
+        tmp = next(t)
+        if tmp == list[-1]:
+            i += 1
+            if i == k - 1:
+                return list[-1]
+        else:
+            list.append(tmp)
+            i = 0
+
+            
+
+        
+    
+
+    
+
+
 
 
 def partial_reverse(s, start):
