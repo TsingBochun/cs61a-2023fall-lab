@@ -44,11 +44,11 @@ def insert_items(s, before, after):
             s.insert(i+1, after)
             i += 1       # 当完成这个操作之后，后面的元素不做条件判断，这样就不会进入无限循环
         i += 1
-    return s
+    return s           # Q2: Insert Items FINISHED
 
 
 
-
+# Q4: Count Occurrences
 def count_occurrences(t, n, x):
     """Return the number of times that x is equal to one of the
     first n elements of iterator t.
@@ -71,6 +71,17 @@ def count_occurrences(t, n, x):
     2
     """
     "*** YOUR CODE HERE ***"
+    count = 0
+    i = 0
+    while i < n:
+    #    if next(t) == x:     # ⭐️写到这里
+        tmp = next(t)
+        if x == tmp:
+    #    for x in t:
+    #        if 
+            count += 1
+        i += 1
+    return count
 
 
 def repeated(t, k):
