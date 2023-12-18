@@ -1,9 +1,9 @@
 HW_SOURCE_FILE=__file__
 
-
+# Q2: Insert Items
 def insert_items(s, before, after):
     """Insert after into s after each occurrence of before and then return s.
-
+    # Important: No new lists should be created or returned.   # 不可以创造新的列表
     >>> test_s = [1, 5, 8, 5, 2, 3]
     >>> new_s = insert_items(test_s, 5, 7)
     >>> new_s
@@ -13,20 +13,40 @@ def insert_items(s, before, after):
     >>> new_s is test_s
     True
     >>> double_s = [1, 2, 1, 2, 3, 3]
-    >>> double_s = insert_items(double_s, 3, 4)
+    >>> double_s = insert_items(double_s, 3, 4)    
     >>> double_s
-    [1, 2, 1, 2, 3, 4, 3, 4]
+    [1, 2, 1, 2, 3, 4, 3, 4]                       # 测试未通过，测试结果为[1, 2, 1, 2, 3, 4, 3]
     >>> large_s = [1, 4, 8]
     >>> large_s2 = insert_items(large_s, 4, 4)
     >>> large_s2
-    [1, 4, 4, 8]
+    [1, 4, 4, 8]                                   # 测试未通过，测试结果为[1, 4, 4, 4, 8]
     >>> large_s3 = insert_items(large_s2, 4, 6)
     >>> large_s3
-    [1, 4, 6, 4, 6, 8]
+    [1, 4, 6, 4, 6, 8]                           # 测试未通过, 测试结果为[1, 4, 6, 4, 6, 4, 8]
     >>> large_s3 is large_s
     True
     """
     "*** YOUR CODE HERE ***"
+    #for i in range(len(s)):
+    #    if s[i] == before:
+    #        if i == len(s) - 1:     # 假如测试是最后一个元素
+    ##            s.append(after)
+    #            return s
+    #        s.insert(i+1, after)
+    #        print("i: ", i)          # only for debug
+    #        print("length of s: ", len(s))     # only for debug
+    #for element in s:
+    #    if element == before:
+    #        s.insert(s.index(element) + 1, after) 
+    i = 0
+    while i < len(s):
+        if s[i] == before:
+            s.insert(i+1, after)
+            i += 1       # 当完成这个操作之后，后面的元素不做条件判断，这样就不会进入无限循环
+        i += 1
+    return s
+
+
 
 
 def count_occurrences(t, n, x):
