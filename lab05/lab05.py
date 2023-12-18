@@ -190,7 +190,7 @@ def sprout_leaves(t, leaves):
        bs = [sprout_leaves(b, leaves) for b in branches(t)]
        return tree(label(t), bs)
     #    return tree(label(t), [sprout_leaves(s, leaves) for s in branches(t)])
-    #    return tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])
+    #    return tree(label(t), [sprout_leaves(b, leaves) for b in branches(t)])   # Q6: Find Path FINISHED
 
             
 
