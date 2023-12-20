@@ -105,7 +105,7 @@ class Player:
         """
         assert not self.deck.is_empty(), 'Deck is empty!'
         "*** YOUR CODE HERE ***"
-        self.hand = self.hand + [self.deck.draw()]
+        self.hand = self.hand + [self.deck.draw()]       # Q5 draw FINISHED
 
     def play(self, index):
         """Remove and return a card from the player's hand at the given INDEX.
@@ -122,6 +122,8 @@ class Player:
         2
         """
         "*** YOUR CODE HERE ***"
+        #self.hand.pop(index)
+        return self.hand.pop(index)
 
 
     def display_hand(self):
