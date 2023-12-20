@@ -1,3 +1,6 @@
+#  lab 07
+
+# Q2: Retirement
 class Account:
     """An account has a balance and a holder.
     >>> a = Account('John')
@@ -38,6 +41,13 @@ class Account:
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
         "*** YOUR CODE HERE ***"
+        count = 0
+        balance = self.balance
+        while balance < amount:
+            balance = balance * (1 + self.interest)
+            count += 1
+        return count
+            
 
 
 class FreeChecking(Account):
