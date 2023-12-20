@@ -90,7 +90,7 @@ class Player:
         self.hand = [deck.draw() for i in range(5)]
         #hand = []
         #for _ in range(5):
-        #    hand.append(deck.draw())
+        #    hand.append(deck.draw())     # Q5 init FINISHED
 
     def draw(self):
         """Draw a card from the player's deck and add it to their hand.
@@ -105,6 +105,7 @@ class Player:
         """
         assert not self.deck.is_empty(), 'Deck is empty!'
         "*** YOUR CODE HERE ***"
+        self.hand = self.hand + [self.deck.draw()]
 
     def play(self, index):
         """Remove and return a card from the player's hand at the given INDEX.
