@@ -119,7 +119,7 @@ def repeated(t, k):
                 return list[-1]
         else:
             list.append(tmp)
-            i = 0
+            i = 0               # Q5: Repeated FINISHED
 
             
 
