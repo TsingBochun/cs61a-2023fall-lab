@@ -46,10 +46,10 @@ class Account:
         while balance < amount:
             balance = balance * (1 + self.interest)
             count += 1
-        return count
+        return count         # Q2: Retirement FINISHED
             
 
-
+# Q3: FreeChecking
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
     >>> ch = FreeChecking('Jack')
@@ -70,11 +70,32 @@ class FreeChecking(Account):
     7
     >>> ch.withdraw(3)  # ch still charges a fee
     5
-    >>> ch.withdraw(5)  # Not enough to cover fee + withdraw
+    >>> ch.withdraw(5)  # Not enough to cover fee + withdraw      # 测试未通过显示-1
     'Insufficient funds'
     """
     withdraw_fee = 1
     free_withdrawals = 2
 
     "*** YOUR CODE HERE ***"
+    times_account = 0              # 存取款的变量
+    def __init__(self, account_holder):
+        super().__init__(account_holder)
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            self.times_account += 1
+            return "Insufficient funds"
+        if amount > self.max_withdrawal:
+            self.times_account += 1
+            return "Can't withdraw that amount"
+        if self.times_account < self.free_withdrawals:
+        #self.balance = self.balance - amount
+            self.balance = self.balance - amount
+            self.times_account += 1
+        else:
+            self.balance = self.balance - amount - self.withdraw_fee
+            self.times_account += 1
+            if self.balance < self.withdraw_fee:
+                return "Insufficient funds"
+        return self.balance
 
