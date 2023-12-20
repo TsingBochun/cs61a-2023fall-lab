@@ -47,7 +47,7 @@ class Card:
         "*** YOUR CODE HERE ***"
         result = 0
         result = self.attack - opponent_card.defense
-        return result
+        return result                                       # Q4: Making Cards FINISHED
 
 
     def effect(self, opponent_card, player, opponent):
@@ -69,7 +69,8 @@ class Card:
         Returns a copy of this card.
         """
         return Card(self.name, self.attack, self.defense)
-
+    
+# Q5: Making a Player
 class Player:
     def __init__(self, deck, name):
         """Initialize a Player object.
@@ -86,6 +87,10 @@ class Player:
         self.deck = deck
         self.name = name
         "*** YOUR CODE HERE ***"
+        self.hand = [deck.draw() for i in range(5)]
+        #hand = []
+        #for _ in range(5):
+        #    hand.append(deck.draw())
 
     def draw(self):
         """Draw a card from the player's deck and add it to their hand.
