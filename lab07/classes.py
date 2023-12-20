@@ -26,7 +26,7 @@ class Card:
         "*** YOUR CODE HERE ***"
         self.name = name
         self.attack = attack
-        self.defense = defense
+        self.defense = defense         # Q4 init FINISHED
 
     def power(self, opponent_card):
         """
@@ -45,6 +45,9 @@ class Card:
         -100
         """
         "*** YOUR CODE HERE ***"
+        result = 0
+        result = self.attack - opponent_card.defense
+        return result
 
 
     def effect(self, opponent_card, player, opponent):
