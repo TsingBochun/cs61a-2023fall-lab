@@ -2,6 +2,7 @@
 
 import random
 
+# Q4: Making Cards
 class Card:
     cardtype = 'Staff'
 
@@ -23,6 +24,9 @@ class Card:
         500
         """
         "*** YOUR CODE HERE ***"
+        self.name = name
+        self.attack = attack
+        self.defense = defense
 
     def power(self, opponent_card):
         """
