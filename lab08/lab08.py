@@ -84,11 +84,12 @@ def multiply_lnks(lst_of_lnks):
     product = 1
     for lnk in lst_of_lnks:
         if lnk is Link.empty:
-            return Link.empty
+            return Link.empty    # 当这个链表本身是空链表的时候直接返回它，不进行后面的运算，最后再利用空元祖乘以任何数值得到空元组，所以最后再和前面的元素进行LINK（），依然是作为尾巴存在
+            #return              
         product *= lnk.first
     lst_of_lnks_rests = [lnk.rest for lnk in lst_of_lnks]
     return Link(product, multiply_lnks(lst_of_lnks_rests))      # Q4: Multiply Links 学习答案，没有百分百看懂
-        
+                                                        # 一个空元组乘以任何数字都是空元组
 
 
 class Link:
