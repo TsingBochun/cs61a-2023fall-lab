@@ -42,9 +42,17 @@ def convert_link(link):
     list = []
     if link is Link.empty:
         return []
-    #list = []
-    list = [link.first] + convert_link(link.rest)
-    return list
+    #list = [link.first] + convert_link(link.rest)
+    #return list                                       # Q3: Convert Link RECURSIVE finished
+    remain = link
+    while True:
+        list.append(remain.first)
+        remain = remain.rest
+        if remain is Link.empty:
+            break
+    return list                                     # Q3: Convert Link ITERAGBLE finished
+
+    
 
 
 def multiply_lnks(lst_of_lnks):
