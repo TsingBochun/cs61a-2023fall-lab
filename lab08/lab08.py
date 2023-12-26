@@ -1,3 +1,4 @@
+# Q2: Duplicate Link
 def duplicate_link(link, val):
     """Mutates `link` such that if there is a linked list
     node that has a first equal to value, that node will
@@ -18,6 +19,14 @@ def duplicate_link(link, val):
     Link(1, Link(2, Link(2, Link(2, Link(2, Link(3))))))
     """
     "*** YOUR CODE HERE ***"
+    if link is Link.empty:
+        return
+    if link.first == val:
+        link.rest = Link(val, link.rest)
+    else:
+        duplicate_link(link.rest, val)
+        duplicate_link(link.rest.rest, val)       # Q2: Duplicate Link FINISHED
+    
 
 
 def convert_link(link):
