@@ -54,7 +54,7 @@ def convert_link(link):
 
     
 
-
+# Q4: Multiply Links
 def multiply_lnks(lst_of_lnks):
     """
     >>> a = Link(2, Link(3))
@@ -70,13 +70,25 @@ def multiply_lnks(lst_of_lnks):
     >>> p2
     Link(48, Link(12, Link(0)))
     """
+    #product = 1
+    #for _________ in ________________:
+    #    if __________________________________________:
+    #        _________________________________
+    #    ___________________
+    #lst_of_lnks_rests = [_________ for _________ in ________________]
+    #return _________________________________________________
+    #if lst_of_lnks[0].rest is Link.empty:
+    #    if lst_of_lnks[1].rest is Link.empty:
+    #        return Link(lst_of_lnks[0].first * lst_of_lnks[1].first)
+    #return Link(lst_of_lnks[0].first * lst_of_lnks[1].first, multiply_lnks([x.rest for x in lst_of_lnks]))
     product = 1
-    for _________ in ________________:
-        if __________________________________________:
-            _________________________________
-        ___________________
-    lst_of_lnks_rests = [_________ for _________ in ________________]
-    return _________________________________________________
+    for lnk in lst_of_lnks:
+        if lnk is Link.empty:
+            return Link.empty
+        product *= lnk.first
+    lst_of_lnks_rests = [lnk.rest for lnk in lst_of_lnks]
+    return Link(product, multiply_lnks(lst_of_lnks_rests))      # Q4: Multiply Links 学习答案，没有百分百看懂
+        
 
 
 class Link:
