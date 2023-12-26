@@ -97,5 +97,5 @@ class FreeChecking(Account):
             self.times_account += 1
             if self.balance < self.withdraw_fee:
                 return "Insufficient funds"
-        return self.balance
+        return self.balance                      # Q3: FreeChecking FINISHED
 

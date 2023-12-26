@@ -1,5 +1,4 @@
 
-# Q4: Making Cards
 from classes import *
 
 standard_cards = [

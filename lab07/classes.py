@@ -123,7 +123,7 @@ class Player:
         """
         "*** YOUR CODE HERE ***"
         #self.hand.pop(index)
-        return self.hand.pop(index)
+        return self.hand.pop(index)      # Q5 FINISHED
 
 
     def display_hand(self):
