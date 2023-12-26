@@ -28,7 +28,7 @@ def duplicate_link(link, val):
         duplicate_link(link.rest.rest, val)       # Q2: Duplicate Link FINISHED
     
 
-
+# Q3: Convert Link
 def convert_link(link):
     """Takes a linked list and returns a Python list with the same elements.
 
@@ -39,6 +39,12 @@ def convert_link(link):
     []
     """
     "*** YOUR CODE HERE ***"
+    list = []
+    if link is Link.empty:
+        return []
+    #list = []
+    list = [link.first] + convert_link(link.rest)
+    return list
 
 
 def multiply_lnks(lst_of_lnks):
