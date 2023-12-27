@@ -132,4 +132,8 @@ class Link:
             string += str(self.first) + ' '
             self = self.rest
         return string + str(self.first) + '>'
+    
+
+# 以下是我对于linked list在SICP上的练习部分
+
 
