@@ -22,7 +22,7 @@ def cumulative_mul(t):
 
 
 
-
+# Q3: Prune Small
 def prune_small(t, n):
     """Prune the tree mutatively, keeping only the n branches
     of each node with the smallest labels.
@@ -40,11 +40,17 @@ def prune_small(t, n):
     >>> t3
     Tree(6, [Tree(1), Tree(3, [Tree(1), Tree(2)])])
     """
-    while ___________________________:
-        largest = max(_______________, key=____________________)
-        _________________________
-    for __ in _____________:
-        ___________________
+    #while ___________________________:
+    #    largest = max(_______________, key=____________________)
+    #    _________________________
+    #for __ in _____________:
+    #    ___________________
+    while len(t.branches) > n:
+        largest = max(t.branches, key=lambda x: x.label)
+        t.branches.remove(largest)        # 这里的点remove在link class 中并没有被定义呀？哦这里的点remove应该是list的built in method
+    for b in t.branches:
+        prune_small(b, n)      # 我想明白了为什么没有base case，因为base case其实就是树为叶子的时候，do nothing，而且也没有任何的mutation，所以可以直接省略
+
 
 
 def delete(t, x):
