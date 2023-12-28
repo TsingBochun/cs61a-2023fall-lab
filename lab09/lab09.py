@@ -13,11 +13,13 @@ def cumulative_mul(t):
     Tree(5040, [Tree(60, [Tree(3), Tree(4), Tree(5)]), Tree(42, [Tree(7)])])
     """
     "*** YOUR CODE HERE ***"
-    if t.is_leaf:
-        t.label = t.label
-    else:
-        for b in t.branches:
-            t.label *= cumulative_mul(b)
+    for b in t.branches:
+        cumulative_mul(b)       # 这里的多变性是和递归放在一起的，这段代码是说，首先将树枝全部改造一遍
+    total = t.label
+    for b in t.branches:        # 然后对于把根所有树枝的根lable全部乘起来，并且最终和根的label相乘
+        total *= b.label
+    t.label = total            # 最后得到新的标签，我有一个疑问，where is the base case?  # Q2: Cumulative Mul 学习
+
 
 
 
