@@ -50,7 +50,7 @@ def prune_small(t, n):
         t.branches.remove(largest)        # 这里的点remove在link class 中并没有被定义呀？哦这里的点remove应该是list的built in method
     for b in t.branches:
         prune_small(b, n)      # 我想明白了为什么没有base case，因为base case其实就是树为叶子的时候，do nothing，而且也没有任何的mutation，所以可以直接省略
-
+                              # 学习 Q3: Prune Small
 
 
 def delete(t, x):
