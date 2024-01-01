@@ -13,15 +13,18 @@ def calc_eval(exp):
     >>> calc_eval(Pair("+", Pair(1, Pair(2, nil))))
     3
     """
-    if isinstance(exp, Pair):
-        operator = ____________ # UPDATE THIS FOR Q2
-        operands = ____________ # UPDATE THIS FOR Q2
+    if isinstance(exp, Pair):     # 当EXP表达式就是PAIR数据结构的时候
+        #operator = ____________ # UPDATE THIS FOR Q2
+        operator = exp.first
+        #operands = ____________ # UPDATE THIS FOR Q2
+        operands = exp.rest
         if operator == 'and': # and expressions
             return eval_and(operands)
         elif operator == 'define': # define expressions
             return eval_define(operands)
         else: # Call expressions
-            return calc_apply(___________, ___________) # UPDATE THIS FOR Q2
+            #return calc_apply(___________, ___________) # UPDATE THIS FOR Q2
+            return calc_apply(calc_eval(operator), operands.map(calc_eval))
     elif exp in OPERATORS:   # Looking up procedures
         return OPERATORS[exp]
     elif isinstance(exp, int) or isinstance(exp, bool):   # Numbers and booleans
@@ -52,6 +55,14 @@ def floor_div(args):
     20
     """
     # BEGIN SOLUTION Q2
+    result = args.first
+    divisors = args.rest        # 相当于把args看成linked list 来处理
+    while divisors != nil:
+        divisor = divisors.first
+        result //= divisor
+        divisors = divisors.rest
+    return result
+    
 
 scheme_t = True   # Scheme's #t
 scheme_f = False  # Scheme's #f
@@ -74,6 +85,14 @@ def eval_and(expressions):
     True
     """
     # BEGIN SOLUTION Q3
+    curr, val = expressions, True
+    while curr is not nil:
+        val = calc_eval(curr.first)
+        if val is scheme_f:
+            return scheme_f
+        curr = curr.rest
+    return val
+
 
 bindings = {}
 
@@ -93,6 +112,9 @@ def eval_define(expressions):
     2
     """
     # BEGIN SOLUTION Q4
+    symbol, value = expressions.first, calc_eval(expressions.rest.first)
+    bindings[symbol] = value
+    return symbol
 
 OPERATORS = { "//": floor_div, "+": addition, "-": subtraction, "*": multiplication, "/": division }
 
