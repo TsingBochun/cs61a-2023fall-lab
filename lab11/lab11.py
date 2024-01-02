@@ -114,7 +114,7 @@ def eval_define(expressions):
     # BEGIN SOLUTION Q4
     symbol, value = expressions.first, calc_eval(expressions.rest.first)
     bindings[symbol] = value
-    return symbol
+    return symbol              # lab11 finished
 
 OPERATORS = { "//": floor_div, "+": addition, "-": subtraction, "*": multiplication, "/": division }
 
